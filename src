@@ -1,0 +1,29 @@
+DROP DATABASE InventarioArmazem;
+
+CREATE DATABASE  InventarioArmazem;
+
+USE  InventarioArmazem;
+
+CREATE TABLE Categorias (
+    id_categoria INT auto_increment primary key,
+    nome VARCHAR(100) not null
+);
+
+CREATE TABLE Fornecedores (
+	id_fornecedor INT auto_increment primary key,
+    nome VARCHAR(100) not null,
+    contato VARCHAR(100),
+    endereco TEXT
+);
+
+CREATE TABLE Produtos (
+    id_produto INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    preco DECIMAL(10,2),
+    quantidade_em_estoque INT,
+    id_categoria INT,
+    FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria)
+);
+
+    
