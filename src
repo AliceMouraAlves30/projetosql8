@@ -10,7 +10,7 @@ CREATE TABLE Categorias (
 );
 
 CREATE TABLE Fornecedores (
-	id_fornecedor INT auto_increment primary key,
+    id_fornecedor INT auto_increment primary key,
     nome VARCHAR(100) not null,
     contato VARCHAR(100),
     endereco TEXT
@@ -26,6 +26,51 @@ CREATE TABLE Produtos (
     FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria)
 );
 
-INSERT INTO Categorias (nome,eletronicos,roupas,alimentos) VALUES
-()
- 
+INSERT INTO Categorias (nome) VALUES
+('Eletrônicos Gerais'),
+('Roupas e Vestuário'),
+('Comida e Bebidas');
+
+INSERT INTO Fornecedores (nome, contato, endereco) VALUES
+('Alice Moura', '4812345678', 'Rua Isid Dutra'),
+('Betina Santos', '4891011121', 'Avenida A'),
+('Felipe Neto', '4888311468', 'Praça 15');
+
+INSERT INTO Produtos (nome, descricao, preco, quantidade_em_estoque, id_categoria) VALUES
+('Smartphone', 'Smartphone com 64GB de armazenamento', 699.99, 50, 1),
+('Moletom Feminino', 'Moletom Feminino 100% algodão', 35.00, 100, 2),
+('Cereal', 'Cereal Integral em caixa de 500g', 5.25, 50, 3);
+
+SELECT * FROM Produtos
+
+SELECT * FROM Produtos
+WHERE id_categoria = 1;
+
+SELECT f.nome, f.contato, f.endereco
+FROM Fornecedores f
+JOIN Produtos p ON p.id_categoria = f.id_categoria
+WHERE p.preco > 100;
+
+UPDATE Produtos
+SET preco = 799.99
+WHERE id_produto = 1;
+
+UPDATE Categorias
+SET nome = 'Roupas e Vestuário'
+WHERE id_categoria = 2;
+
+
+UPDATE Fornecedores
+SET endereco = 'Praça 15'
+WHERE id_fornecedor = 3;
+
+DELETE FROM Produtos
+WHERE id_produto = 1;
+
+DELETE FROM Categorias
+WHERE id_categoria = 3;
+
+DELETE FROM Fornecedores
+WHERE id_fornecedor = 2;
+
+
