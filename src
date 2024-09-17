@@ -26,4 +26,6 @@ CREATE TABLE Produtos (
     FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria)
 );
 
+INSERT INTO Categorias (nome,eletronicos,roupas,alimentos) VALUES
+()
  
