@@ -1,0 +1,18 @@
+
+### .gitignore
+
+```plaintext
+# Ignorar arquivos desnecessários
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Ignorar diretório de backup
+backup/
+
+# Ignorar arquivos de banco de dados locais
+*.sql
+
+# Ignorar arquivos de cache do sistema
+.cache/
