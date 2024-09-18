@@ -18,6 +18,7 @@ CREATE TABLE Fornecedores (
 
 CREATE TABLE Produtos (
     id_produto INT AUTO_INCREMENT PRIMARY KEY,
+    id_fornecedor INT,
     nome VARCHAR(100) NOT NULL,
     descricao TEXT,
     preco DECIMAL(10,2),
@@ -43,12 +44,12 @@ INSERT INTO Produtos (nome, descricao, preco, quantidade_em_estoque, id_categori
 
 SELECT * FROM Produtos
 
-SELECT * FROM Produtos
+
 WHERE id_categoria = 1;
 
 SELECT f.nome, f.contato, f.endereco
 FROM Fornecedores f
-JOIN Produtos p ON p.id_categoria = f.id_categoria
+JOIN Produtos p ON p.id_fornecedor = f.id_fornecedor
 WHERE p.preco > 100;
 
 UPDATE Produtos
@@ -65,7 +66,7 @@ SET endereco = 'Praça 15'
 WHERE id_fornecedor = 3;
 
 DELETE FROM Produtos
-WHERE id_produto = 1;
+WHERE id_produto = 3;
 
 DELETE FROM Categorias
 WHERE id_categoria = 3;
