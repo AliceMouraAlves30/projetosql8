@@ -1,0 +1,24 @@
+# InventarioArmazem
+
+## Descrição
+O projeto **InventarioArmazem** é um sistema de gerenciamento de inventário e fornecedores. Ele permite o armazenamento e consulta de informações sobre categorias de produtos, fornecedores e os produtos em si. O sistema suporta operações de inserção, consulta, atualização e exclusão de dados usando SQL.
+
+## Estrutura do Banco de Dados
+
+### Tabelas
+- **Categorias**: Armazena os tipos de categorias dos produtos.
+- **Fornecedores**: Armazena as informações de contato e endereço dos fornecedores.
+- **Produtos**: Armazena os detalhes dos produtos, incluindo a categoria e o fornecedor.
+
+### Relacionamentos
+- A tabela `Produtos` está relacionada com a tabela `Categorias` através da chave estrangeira `id_categoria`.
+- A tabela `Produtos` também pode estar relacionada com a tabela `Fornecedores` através da chave `id_fornecedor` (dependendo da estrutura do seu banco de dados).
+
+## Estrutura das Tabelas
+
+### Categorias
+```sql
+CREATE TABLE Categorias (
+    id_categoria INT auto_increment primary key,
+    nome VARCHAR(100) not null
+);
